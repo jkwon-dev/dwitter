@@ -29,7 +29,7 @@ export async function updateTweet(req, res, next) {
     if(!tweet) {
         return res.sendStatus(404); 
     }
-    if(tweet.id !== req.userId) {
+    if(tweet.userId !== req.userId) {
         return res.sendStatus(403); 
     }
     const updated = await tweetsRepository.update(id, text); 
@@ -42,7 +42,7 @@ export async function updateTweet(req, res, next) {
     if(!tweet) {
         return res.sendStatus(404); 
     }
-    if(tweet.id !== req.userId) {
+    if(tweet.userId !== req.userId) {
         return res.sendStatus(403); 
     }
     await tweetsRepository.remove(id); 
